@@ -33,7 +33,7 @@ test.describe('Cart Page Valiation',()=>{
             expect(await cartPage.getItemsTotalPriceFromCart()).toEqual([data.products.totalPrice]);
             await page.waitForTimeout(5000);
     })
-    test.only('TC14: Place Order: Register while Checkout(without login)',async({homePage,cartPage,utils,paymentPage,page})=>{
+    test('TC14: Place Order: Register while Checkout(without login)',async({homePage,cartPage,utils,paymentPage,page})=>{
             await homePage.launchPage();
             await homePage.hoverAddProductsToCart([data.products.product1,
                 data.products.product2,

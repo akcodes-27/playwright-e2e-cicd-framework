@@ -7,7 +7,7 @@ class ProductPage extends BasePage
         super(page);
 
         //Button locator
-        this.productTabLocator = page.locator("//i[@class='material-icons card_travel']/parent::a");
+        this.productTabLocator = page.locator('a[href="/products"]');
         this.viewProductBtnLocator = "a[href*='product_details']";
         this.searchBtnLocator = page.locator("//button[@id='submit_search']");
         this.addToCartBtn = ".btn btn-default add-to-cart";

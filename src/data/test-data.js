@@ -7,6 +7,7 @@ const data={
     },
     title:{
         homePageTitle: 'Automation Exercise',
+        productDetailsPage: 'Automation Exercise - Product Details',
     },
     user:{
         name: 'AK',
@@ -36,7 +37,7 @@ const data={
     },
     validUser:{
         name: 'AKM',
-        email: 'AKMK27@example.com',
+        email: 'AK@demo.com',
         password: 'Akm@2003',
         subject: 'TestSubject',
         msg: 'TestDescription',
@@ -78,12 +79,11 @@ const data={
 
         searchProductMen: 'Tshirt',
         quantity: '1',
+        quantityfx: '',
         quantityDtls: '4',
         totalPrice: 'Rs. 3278',
+        totalfx: 'Rs. 2000',
         description: 'Test'
-    },
-    title:{
-        productDetailsPage: 'Automation Exercise - Product Details',
     },
     paymentDetails:{
         name: 'AK Mishra',

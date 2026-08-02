@@ -1,0 +1,97 @@
+const data={
+    url:{
+        homePageUrl: process.env.BASE_URL||'https://automationexercise.com/',
+        loginPageUrl: process.env.LOGINPAGE_URL||'https://automationexercise.com/login',
+        productPageUrl: process.env.PRODUCTPAGE_URL||'https://automationexercise.com/products',
+        cartPageUrl: process.env.CARTPAGE_URL||'https://automationexercise.com/view_cart',
+    },
+    title:{
+        homePageTitle: 'Automation Exercise',
+    },
+    user:{
+        name: 'AK',
+        email: 'AkMis27@example.com',
+        password: 'Ak@2003',
+        day: '27',
+        month: 'September',
+        year: '2003',
+    },
+    userAddress:{
+        fullName: 'Mr. AK Mishra',
+        firstName: 'AK',
+        lastName: 'Mishra',
+        company: 'CTS',
+        firstAdd: 'Hinjewadi phase 1',
+        secondAdd: 'Sky heights room no 69',
+        country: 'India',
+        state: 'Maharashtra',
+        city: 'Pune',
+        zipcode: '654321',
+        mobileNumber: '9876543210',
+        cityZipcode: 'Pune Maharashtra 654321'
+    },
+    successResponse:{
+        accCreated: 'Account Created!',
+        accDeleted: 'Account Deleted!',
+    },
+    validUser:{
+        name: 'AKM',
+        email: 'AKMK27@example.com',
+        password: 'Akm@2003',
+        subject: 'TestSubject',
+        msg: 'TestDescription',
+        textFile: './src/resources/Feedback.bmp'
+    },
+    invalidUser:{
+        name: 'invalidName',
+        email: 'inValid@example.com',
+        password: 'invalid2003',
+        
+    },
+    errorMsg:{
+        loginFormError: 'Your email or password is incorrect!',
+        signupFormError: 'Email Address already exist!',
+    },
+    response:{
+        uploadSuccess: 'Success! Your details have been submitted successfully.',
+        subSuccess: 'You have been successfully subscribed!',
+        orderSuccess: 'Order Placed!',
+    },
+    products:{
+        product1: 'Blue Top',
+        product1Price:'Rs. 500',
+
+        product2: 'Men Tshirt',
+        producr2Price:'Rs. 400',
+
+        product4: 'Stylish Dress',
+        product4Price:'Rs. 1500',
+
+        product5: 'Winter Top',
+        producr5Price:'Rs. 600',
+
+        product10: 'Frozen Tops For Kids',
+        producr10Price:'Rs. 278',
+
+
+
+
+        searchProductMen: 'Tshirt',
+        quantity: '1',
+        quantityDtls: '4',
+        totalPrice: 'Rs. 3278',
+        description: 'Test'
+    },
+    title:{
+        productDetailsPage: 'Automation Exercise - Product Details',
+    },
+    paymentDetails:{
+        name: 'AK Mishra',
+        cardNumber: '092720031610',
+        cvc:'003',
+        expiryMonth:'9',
+        expiryYear: '2032'
+    }
+
+}
+module.exports={data};

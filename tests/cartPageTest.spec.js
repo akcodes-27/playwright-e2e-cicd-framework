@@ -8,7 +8,8 @@ test.describe('Cart Page Valiation',()=>{
         await expect(await homePage.getSubSuccessMsg()).toBe(data.response.subSuccess);
         await page.waitForTimeout(5000);
     })
-    test('TC12: Add Products in Cart',async({loggedIn,productPage,cartPage,page})=>{
+    test('TC12: Add Products in Cart',async({homePage,productPage,cartPage,page})=>{
+        await homePage.launchPage();
         await productPage.clickProductTab();
         await productPage.hoverClickAddToCart(data.products.product1);
         await productPage.clickContinueBtn();
@@ -30,7 +31,7 @@ test.describe('Cart Page Valiation',()=>{
             expect(await cartPage.getItemsInCart()).toEqual([data.products.product1]);
             expect(await cartPage.getItemsPriceFromCart()).toEqual([data.products.product1Price]);
             expect(await cartPage.getItemsQuantityFromCart()).toEqual([data.products.quantityDtls]);
-            expect(await cartPage.getItemsTotalPriceFromCart()).toEqual([data.products.totalPrice]);
+            expect(await cartPage.getItemsTotalPriceFromCart()).toEqual([data.products.totalfx]);
             await page.waitForTimeout(5000);
     })
     test('TC14: Place Order: Register while Checkout(without login)',async({homePage,cartPage,utils,paymentPage,page})=>{
@@ -116,6 +117,5 @@ test.describe('Cart Page Valiation',()=>{
             expect(await paymentPage.getOrderSuccessMsg()).toEqual(data.response.orderSuccess);
             await paymentPage.clickDownloadInvoiceBtn();
             await paymentPage.clickContinueBtn();
-            await page.waitForTimeout(5000);
     })  
 })

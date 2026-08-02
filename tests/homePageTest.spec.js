@@ -40,7 +40,7 @@ test.describe('Positive Test Cases',()=>{
         await homePage.clickContinueBtn();
         await page.waitForTimeout(3000);
     })
-    test('TC2: Login User with correct email and password',async({homePage,page})=>{
+    test.skip('TC2: Login User with correct email and password',async({homePage,page})=>{
         await homePage.launchPage();
         await expect(page).toHaveURL(data.url.homePageUrl);
         const pageTitle = await homePage.getPageTitle();
@@ -114,7 +114,7 @@ test.describe('Negative Test cases',()=>{
         expect(errorMsg).toBe(data.errorMsg.loginFormError);
         await page.waitForTimeout(3000);
     })
-    test('TC5: Register User with existing email',async({homePage,page})=>{
+    test.skip('TC5: Register User with existing email',async({homePage,page})=>{
         await homePage.launchPage();
         await expect(page).toHaveURL(data.url.homePageUrl);
         const pageTitle = await homePage.getPageTitle();

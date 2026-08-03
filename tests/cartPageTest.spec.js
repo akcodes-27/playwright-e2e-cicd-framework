@@ -157,18 +157,4 @@ test.describe('Cart Page Valiation',()=>{
             expect(updatedProductsInCart).not.toContain(data.products.product5);
             await page.waitForTimeout(3000);
     })
-        test.only('TC17B: Remove Products From Cart',async({homePage,cartPage,page})=>{
-            await homePage.launchPage();
-            await homePage.hoverAddProductsToCart([data.products.product1,data.products.product2]);
-            await homePage.clickCartTab();
-            await expect(cartPage.cartItemsNames.first()).toBeVisible();
-            const produtcsInCart = await cartPage.getItemsInCart();
-            expect(produtcsInCart).toContain(data.products.product2);
-            await cartPage.removeProductsFromCart([data.products.product2]);
-            await page.waitForTimeout(3000);
-            const updatedProductsInCart = await cartPage.getItemsInCart();
-            expect(updatedProductsInCart).not.toContain(data.products.product2);
-            await page.waitForTimeout(3000);
-    })
-
 })

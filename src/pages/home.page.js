@@ -18,6 +18,7 @@ class HomePage extends BasePage
         this.cartTabLocator = page.locator("//i[@class='fa fa-shopping-cart']/parent::a/parent::li");
         this.viewProductBtnLocator = 'a:has-text("View Product")';
         this.popupContinueBtnLocator = page.locator("//div[@class='modal-footer']/button");
+        this.homeTabLocator = page.locator("//i[@class='fa fa-home']/parent::a");
 
         //List locator 
         this.productBoxListLocator = page.locator(".product-image-wrapper");
@@ -77,6 +78,9 @@ class HomePage extends BasePage
         this.recvOfferCheckBoxLocator = "#optin";
    
     }
+   async clickHomeTab(){
+    await this.homeTabLocator.click();
+   }
    async getPageTitle(){
         return this.page.title();
     }

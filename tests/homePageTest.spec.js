@@ -2,14 +2,15 @@ import { test,expect } from "../src/fixtures/pages.fixtures";
 import { data } from "../src/data/test-data";
 import { Utils } from "../src/utils/utils";
 test.describe('Positive Test Cases',()=>{
-    test('TC1: Register User',async({homePage,page})=>{
+    test('TC1: Register User',async({homePage,utils,page})=>{
         await homePage.launchPage();
         await expect(page).toHaveURL(data.url.homePageUrl);
         const pageTitle = await homePage.getPageTitle();
         await expect(pageTitle).toBe(data.title.homePageTitle);
         await homePage.clickSignupLoginBtn();
         expect(page.locator(homePage.newUserSignupLocator)).toBeVisible();
-        await homePage.fillSignupForm(data.user.name,data.user.email);
+        const user = utils.generateRandomUser();
+        await homePage.fillSignupForm(user.name,user.email);
         await homePage.clickSignupBtn();
         expect(page.locator(homePage.enterAccInfoLocator)).toBeVisible();
         expect(page.locator(homePage.accInfoEmailLocator)).toBeDisabled();
@@ -33,14 +34,14 @@ test.describe('Positive Test Cases',()=>{
         expect(accCreatedMsg).toBe(data.successResponse.accCreated);
         await homePage.clickContinueBtn();
         const logedUserName = await homePage.getLogedUserName();
-        expect(logedUserName).toBe(data.user.name);
+        expect(logedUserName).toBe(user.name);
         await homePage.clickDeleteAccBtn();
         const accDeletedMSg = await homePage.getAccResponseMsg();
         expect(accDeletedMSg).toBe(data.successResponse.accDeleted);
         await homePage.clickContinueBtn();
         await page.waitForTimeout(3000);
     })
-    test.skip('TC2: Login User with correct email and password',async({homePage,page})=>{
+    test.skip('TC2: Login User with correct email and password',async({signUp,homePage,page})=>{
         await homePage.launchPage();
         await expect(page).toHaveURL(data.url.homePageUrl);
         const pageTitle = await homePage.getPageTitle();

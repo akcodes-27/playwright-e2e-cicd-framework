@@ -12,15 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Detect changed spec files
-        id: changed-files
-        uses: tj-actions/changed-files@v44
-        with:
-          files: |
-            tests/**/*.spec.js
 
       - uses: actions/setup-node@v4
         with:
@@ -32,13 +23,8 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Run tests on changed spec files
-        if: steps.changed-files.outputs.any_changed == 'true'
-        run: npx playwright test ${{ steps.changed-files.outputs.all_changed_files }}
-
-      - name: No spec files changed
-        if: steps.changed-files.outputs.any_changed != 'true'
-        run: echo "No .spec.js files changed in this push/PR — nothing to run."
+      - name: Run only new/tagged tests
+        run: npx playwright test --grep "@new"
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}

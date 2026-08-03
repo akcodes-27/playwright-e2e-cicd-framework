@@ -19,6 +19,8 @@ class HomePage extends BasePage
         this.viewProductBtnLocator = 'a:has-text("View Product")';
         this.popupContinueBtnLocator = page.locator("//div[@class='modal-footer']/button");
         this.homeTabLocator = page.locator("//i[@class='fa fa-home']/parent::a");
+        this.womenTabLocator = page.locator("//h4[@class='panel-title']/a[@href='#Women']");
+        this.dressTabLocator = page.locator("//ul/li/a[@href='/category_products/1']");
 
         //List locator 
         this.productBoxListLocator = page.locator(".product-image-wrapper");
@@ -182,6 +184,12 @@ class HomePage extends BasePage
         await products.getByText('Add to cart').first().click();
         await this.popupContinueBtnLocator.click()
         }
+    }
+    async clickWomenTab(){
+        await this.womenTabLocator.click();
+    }
+    async clickDressTab(){
+        await this.dressTabLocator.click();
     }
 }
 module.exports={ HomePage };

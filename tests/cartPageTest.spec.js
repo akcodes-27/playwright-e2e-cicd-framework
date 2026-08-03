@@ -145,7 +145,7 @@ test.describe('Cart Page Valiation',()=>{
             expect(accDeletedMSg).toBe(data.successResponse.accDeleted);
             await page.waitForTimeout(2000);
     }) 
-    test.only('TC17: Remove Products From Cart',async({homePage,cartPage,page})=>{
+    test('TC17: Remove Products From Cart',async({homePage,cartPage,page})=>{
             await homePage.launchPage();
             await homePage.hoverAddProductsToCart([data.products.product4,data.products.product5]);
             await homePage.clickCartTab();

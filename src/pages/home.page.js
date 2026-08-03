@@ -175,9 +175,6 @@ class HomePage extends BasePage
     async clickViewProductBtn(productName){
        await this.productBoxListLocator.filter({hasText: productName}).getByRole('link', { name: /view product/i }).click();
     }
-    // async getPageTitle(){
-    //     return await this.page.title();
-    // }
     async hoverAddProductsToCart(productNames){
         for(let product of productNames){
         const products = await this.productBoxListLocator.filter({hasText: product});

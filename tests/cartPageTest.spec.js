@@ -1,5 +1,6 @@
 import { test,expect } from "../src/fixtures/pages.fixtures";
 import { data } from "../src/data/test-data";
+import { homedir } from "os";
 test.describe('Cart Page Valiation',()=>{
     test('TC11: Verify Subscription in Cart page',async({loggedIn,homePage,cartPage,page})=>{
         await homePage.clickCartTab();
@@ -144,4 +145,16 @@ test.describe('Cart Page Valiation',()=>{
             expect(accDeletedMSg).toBe(data.successResponse.accDeleted);
             await page.waitForTimeout(2000);
     }) 
+    test('TC17: Remove Products From Cart',async({homePage,cartPage,page})=>{
+            await homePage.launchPage();
+            await homePage.hoverAddProductsToCart([data.products.product4,data.products.product5]);
+            await homePage.clickCartTab();
+            const produtcsInCart = await cartPage.getItemsInCart();
+            expect(produtcsInCart).toContain(data.products.product5);
+            await cartPage.removeProductsFromCart([data.products.product5]);
+            await page.waitForTimeout(2000);
+            const updatedProductsInCart = await cartPage.getItemsInCart();
+            expect(updatedProductsInCart).not.toContain(data.products.product5);
+            await page.waitForTimeout(3000);
+    })
 })

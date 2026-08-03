@@ -117,5 +117,31 @@ test.describe('Cart Page Valiation',()=>{
             expect(await paymentPage.getOrderSuccessMsg()).toEqual(data.response.orderSuccess);
             await paymentPage.clickDownloadInvoiceBtn();
             await paymentPage.clickContinueBtn();
-    })  
+    }) 
+    test('TC15: Place Order: Register before Checkout',async({signUp,homePage,cartPage,utils,paymentPage,page})=>{
+            await homePage.hoverAddProductsToCart([data.products.product1,
+                data.products.product2,
+                data.products.product4,
+                data.products.product5,
+                data.products.product10]);
+            await homePage.clickCartTab();
+            await expect(page).toHaveURL(data.url.cartPageUrl);
+            await cartPage.clickProceedToCheckoutBtn();
+            await cartPage.fillOrderDescription(data.products.description);
+            await cartPage.clickPlaceOrderBtn();
+            await paymentPage.fillPaymentDetails(data.paymentDetails.name,
+                data.paymentDetails.cardNumber,
+                data.paymentDetails.cvc,
+                data.paymentDetails.expiryMonth,
+                data.paymentDetails.expiryYear
+            );
+            await paymentPage.clickPayConfirmBtn();
+            expect(await paymentPage.getOrderSuccessMsg()).toEqual(data.response.orderSuccess);
+            await paymentPage.clickDownloadInvoiceBtn();
+            await paymentPage.clickContinueBtn();
+            await homePage.clickDeleteAccBtn();
+            const accDeletedMSg = await homePage.getAccResponseMsg();
+            expect(accDeletedMSg).toBe(data.successResponse.accDeleted);
+            await page.waitForTimeout(2000);
+    }) 
 })

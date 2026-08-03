@@ -118,7 +118,7 @@ test.describe('Cart Page Valiation',()=>{
             await paymentPage.clickDownloadInvoiceBtn();
             await paymentPage.clickContinueBtn();
     }) 
-    test.only('TC15: Place Order: Register before Checkout',async({signUp,homePage,cartPage,utils,paymentPage,page})=>{
+    test('TC15: Place Order: Register before Checkout',async({signUp,homePage,cartPage,utils,paymentPage,page})=>{
             await homePage.hoverAddProductsToCart([data.products.product1,
                 data.products.product2,
                 data.products.product4,

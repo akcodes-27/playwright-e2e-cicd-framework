@@ -21,6 +21,7 @@ class HomePage extends BasePage
         this.homeTabLocator = page.locator("//i[@class='fa fa-home']/parent::a");
         this.womenTabLocator = page.locator("//h4[@class='panel-title']/a[@href='#Women']");
         this.dressTabLocator = page.locator("//ul/li/a[@href='/category_products/1']");
+        this.productTabLocator = page.locator("//i[@class='material-icons card_travel']/parent::a");
 
         //List locator 
         this.productBoxListLocator = page.locator(".product-image-wrapper");
@@ -190,6 +191,9 @@ class HomePage extends BasePage
     }
     async clickDressTab(){
         await this.dressTabLocator.click();
+    }
+    async clickProductTab(){
+        await this.productTabLocator.click();
     }
 }
 module.exports={ HomePage };

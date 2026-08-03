@@ -1,6 +1,7 @@
 import { test,expect } from "../src/fixtures/pages.fixtures";
 import { data } from "../src/data/test-data";
 import { homedir } from "os";
+import { HomePage } from "../src/pages/home.page";
 test.describe('Cart Page Valiation',()=>{
     test('TC11: Verify Subscription in Cart page',async({loggedIn,homePage,cartPage,page})=>{
         await homePage.clickCartTab();
@@ -157,7 +158,7 @@ test.describe('Cart Page Valiation',()=>{
             expect(updatedProductsInCart).not.toContain(data.products.product5);
             await page.waitForTimeout(3000);
     })
-    test('TC18: View Category Products @new',async({homePage,productPage,cartPage,page})=>{
+    test('TC18: View Category Products',async({homePage,productPage,page})=>{
             await homePage.launchPage();
             await homePage.clickWomenTab();
             await homePage.clickDressTab();
@@ -170,4 +171,28 @@ test.describe('Cart Page Valiation',()=>{
             expect(await productPage.menTshirtsTextLocator).toHaveText(data.title.tshirtPageCategory);
             await page.waitForTimeout(3000);
     })
+    test('TC19: View & Cart Brand Products @new', async({homePage,productPage,page})=>{
+            await homePage.launchPage();
+            await homePage.clickProductTab();
+            const brands = await productPage.brandTabListLocator
+            await expect(brands).toHaveCount(8);
+            for(let i=0; i< await brands.count(); i++){
+                await expect(brands.nth(i)).toBeVisible();
+            }
+            await productPage.clickHAndMBrandTab();
+            expect(await productPage.getProductPageTitle()).toBe(data.title.hAndMPageTitle);
+            const products = await productPage.productList
+            await expect(products).toHaveCount(5);
+            for(let i=0; i<products.count(); i++){
+                await expect(products.nth(i)).toBeVisible();
+            }
+            await productPage.clickAllenSollyBrandTab();
+            expect(await productPage.getProductPageTitle()).toBe(data.title.allenSollyPageTitle);
+            const products2 = await productPage.productList
+            await expect(products2).toHaveCount(3);
+            for(let i=0; i<products2.count(); i++){
+                await expect(products2.nth(i)).toBeVisible();
+            }
+            await page.waitForTimeout(3000);
+        })
 })

@@ -12,6 +12,8 @@ const data={
         dressPageCategory: 'Women - Dress Products',
         tshirtPageTitle: 'Automation Exercise - Tshirts Products',
         tshirtPageCategory: 'Men - Tshirts Products',
+        hAndMPageTitle: 'Brand - H&M Products',
+        allenSollyPageTitle: 'Brand - Allen Solly Junior Products',
     },
     user:{
         name: 'AK',

@@ -16,12 +16,16 @@ class CartPage extends BasePage
         //Button locator 
         this.proceedToCheckoutBtnLocator = page.locator("//a[@class='btn btn-default check_out']");
         this.placeOrderBtnLocator = page.locator("//a[@class='btn btn-default check_out']");
-        
+        this.deleteBtnLocator = page.locator("//td[@class='cart_delete']/a");
+
         //Link locator 
         this.popRegLoginLinkLocator = page.locator("//p[text()='Register / Login account to proceed on checkout.']/following-sibling::p/a");
 
         //Input locator 
         this.descriptionInputLocator = page.locator("//textarea");
+
+        //List locator 
+        this.cartProductListLocator = page.locator("//tbody/tr[contains(@id,'product')]");
     }
 
     async getItemsInCart(){
@@ -52,6 +56,11 @@ class CartPage extends BasePage
     }
     async clickPlaceOrderBtn(){
         await this.placeOrderBtnLocator.click();
+    }
+    async removeProductsFromCart(productNames){
+        for(let product of productNames){
+            await this.cartProductListLocator.filter({hasText: product}).locator("//td[@class='cart_delete']/a").click();
+        }
     }
 }
 module.exports={CartPage};

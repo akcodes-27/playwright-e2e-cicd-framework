@@ -157,4 +157,17 @@ test.describe('Cart Page Valiation',()=>{
             expect(updatedProductsInCart).not.toContain(data.products.product5);
             await page.waitForTimeout(3000);
     })
+    test('TC18: View Category Products @new',async({homePage,productPage,cartPage,page})=>{
+            await homePage.launchPage();
+            await homePage.clickWomenTab();
+            await homePage.clickDressTab();
+            await expect(page).toHaveTitle(data.title.dressPageTitle);
+            expect(await productPage.getWomenDressText()).toBe(data.title.dressPageCategory);
+            await productPage.clickMenTab();
+            await productPage.clickTshirtsTab();
+            await expect(productPage.menTshirtsTextLocator).toBeVisible();
+            await expect(page).toHaveTitle(data.title.tshirtPageTitle);
+            expect(await productPage.menTshirtsTextLocator).toHaveText(data.title.tshirtPageCategory);
+            await page.waitForTimeout(3000);
+    })
 })

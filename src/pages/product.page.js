@@ -13,6 +13,8 @@ class ProductPage extends BasePage
         this.addToCartBtn = ".btn btn-default add-to-cart";
         this.continueShoppingBtn = page.locator("//div[@class='modal-footer']/button");
         this.addToCartDtlsBtn = page.locator("//button[@class='btn btn-default cart']");
+        this.menTabLocator = page.locator("//a[@href='#Men']");
+        this.tshirtsTabLocator = page.locator("//a[@href='/category_products/3']");
 
         //Link locator 
         this.viewCartConLinkLocator = page.locator("//div[@class='modal-body']//a[@href='/view_cart']");
@@ -22,6 +24,8 @@ class ProductPage extends BasePage
         this.productInfoListLocator = page.locator("//div[@class='product-information']/p");
         this.productPriceLocator = page.locator("//div[@class='product-information']/span/span");
         this.productsNameLocator = page.locator("//div[@class='single-products']/div/p");
+        this.womenDressTextLocator = page.locator("//h2[@class='title text-center']");
+        this.menTshirtsTextLocator = page.locator("//h2[@class='title text-center']");
 
         //Product-List locator
         this.productList = page.locator(".product-image-wrapper");
@@ -58,6 +62,18 @@ class ProductPage extends BasePage
     }
     async clickAddToCartBtnDtls(){
         await this.addToCartDtlsBtn.click();
+    }
+    async getWomenDressText(){
+        return await this.womenDressTextLocator.textContent();
+    }
+    async clickMenTab(){
+        await this.menTabLocator.click();
+    }
+    async clickTshirtsTab(){
+        await this.tshirtsTabLocator.click();
+    }
+    async getMenTshirtsText(){
+        return await this.menTshirtsTextLocator.textContent();
     }
 }
 module.exports={ProductPage};

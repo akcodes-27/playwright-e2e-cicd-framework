@@ -8,6 +8,10 @@ const data={
     title:{
         homePageTitle: 'Automation Exercise',
         productDetailsPage: 'Automation Exercise - Product Details',
+        dressPageTitle: 'Automation Exercise - Dress Products',
+        dressPageCategory: 'Women - Dress Products',
+        tshirtPageTitle: 'Automation Exercise - Tshirts Products',
+        tshirtPageCategory: 'Men - Tshirts Products',
     },
     user:{
         name: 'AK',

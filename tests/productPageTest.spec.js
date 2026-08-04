@@ -1,5 +1,6 @@
 import { test,expect } from "../src/fixtures/pages.fixtures";
 import { data } from "../src/data/test-data";
+import { HomePage } from "../src/pages/home.page";
 test.describe('Product Page Test Suite',()=>{
     test('TC8: Verify All Products and product detail page',async({loggedIn,productPage,page})=>{
         await productPage.clickProductTab();
@@ -30,5 +31,13 @@ test.describe('Product Page Test Suite',()=>{
         }
         await page.waitForTimeout(5000);  
     })
-
+    test('TC21: Add review on product @new',async({homePage,productPage,page})=>{
+        await homePage.launchPage();
+        await homePage.clickProductTab();
+        await productPage.clickViewProductBtn(data.products.product3);
+        await productPage.fillReviewForm(data.validUser.name,data.validUser.email,data.products.description);
+        await productPage.clickReviewSubmitBtn();
+        expect(await productPage.getReviewSuccessMsg()).toBe(data.response.revSuccess);
+        await page.waitForTimeout(3000);
+    })
 })

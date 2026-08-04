@@ -171,7 +171,7 @@ test.describe('Cart Page Valiation',()=>{
             expect(await productPage.menTshirtsTextLocator).toHaveText(data.title.tshirtPageCategory);
             await page.waitForTimeout(3000);
     })
-    test('TC19: View & Cart Brand Products @new', async({homePage,productPage,page})=>{
+    test('TC19: View & Cart Brand Products', async({homePage,productPage,page})=>{
             await homePage.launchPage();
             await homePage.clickProductTab();
             const brands = await productPage.brandTabListLocator
@@ -195,4 +195,35 @@ test.describe('Cart Page Valiation',()=>{
             }
             await page.waitForTimeout(3000);
         })
+    test('TC20: Search Products and Verify Cart After Login @new',async({homePage,productPage,cartPage,page})=>{
+            await homePage.launchPage();
+            await homePage.clickProductTab();
+            await expect(page).toHaveURL(data.url.productPageUrl);
+            let productList = productPage.productList;
+            for(let i=0; i< await productList.count(); i++){
+                await expect(productList.nth(i)).toBeVisible();
+            }
+            await productPage.searchProduct(data.products.searchProductMen);
+            const productNames = await productPage.productsNameLocator.allTextContents();
+            for(const product of productNames){
+            expect(product.toLowerCase()).toMatch(/t[\s-]?shirts?/i);
+            }
+            await productPage.hoverAndAddProductsToCart([data.products.product2,data.products.productPolo]);
+            await productPage.clickCartTab();
+            expect(await cartPage.getItemsInCart()).toStrictEqual([data.products.product2,data.products.productPolo]);
+            await cartPage.clickSignUpLoginBtn();
+            await cartPage.fillLoginForm(data.validUser.email,data.validUser.password);
+            await cartPage.clickLoginBtn();
+            await homePage.clickCartTab();
+            await expect(page).toHaveURL(data.url.cartPageUrl);
+            const cartItems = await cartPage.getItemsInCart();
+            expect(cartItems).toEqual(
+            expect.arrayContaining([
+            data.products.product2,
+            data.products.productPolo
+                    ])
+                );
+            await cartPage.removeProductsFromCart([data.products.product2,data.products.productPolo]);
+            await page.waitForTimeout(3000);
+    })
 })

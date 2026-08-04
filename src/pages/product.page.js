@@ -1,3 +1,4 @@
+import { data } from "../data/test-data";
 import { BasePage } from "./base.page";
 
 class ProductPage extends BasePage
@@ -17,6 +18,9 @@ class ProductPage extends BasePage
         this.tshirtsTabLocator = page.locator("//a[@href='/category_products/3']");
         this.handmBrandLocator = page.locator("//a[text()='H&M']");
         this.allenSollyJbrandLocator = page.locator("//a[text()='Allen Solly Junior']");
+        this.cartTabLocator = page.locator("//i[@class='fa fa-shopping-cart']/parent::a/parent::li");
+        this.popupContinueBtnLocator = page.locator("//div[@class='modal-footer']/button");
+
 
         //Link locator 
         this.viewCartConLinkLocator = page.locator("//div[@class='modal-body']//a[@href='/view_cart']");
@@ -88,6 +92,17 @@ class ProductPage extends BasePage
     }
     async clickAllenSollyBrandTab(){
         await this.allenSollyJbrandLocator.click();
+    }
+    async hoverAndAddProductsToCart(productsNames){
+        for(let product of productsNames){
+        const products = await this.productList.filter({hasText: product});
+        await products.first().hover();
+        await products.getByText('Add to cart').first().click();
+        await this.popupContinueBtnLocator.click()
+        }
+    }
+    async clickCartTab(){
+        await this.cartTabLocator.click();
     }
 }
 module.exports={ProductPage};

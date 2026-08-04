@@ -195,7 +195,7 @@ test.describe('Cart Page Valiation',()=>{
             }
             await page.waitForTimeout(3000);
         })
-    test('TC20: Search Products and Verify Cart After Login @new',async({homePage,productPage,cartPage,page})=>{
+    test('TC20: Search Products and Verify Cart After Login',async({homePage,productPage,cartPage,page})=>{
             await homePage.launchPage();
             await homePage.clickProductTab();
             await expect(page).toHaveURL(data.url.productPageUrl);

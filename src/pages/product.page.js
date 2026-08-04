@@ -20,6 +20,7 @@ class ProductPage extends BasePage
         this.allenSollyJbrandLocator = page.locator("//a[text()='Allen Solly Junior']");
         this.cartTabLocator = page.locator("//i[@class='fa fa-shopping-cart']/parent::a/parent::li");
         this.popupContinueBtnLocator = page.locator("//div[@class='modal-footer']/button");
+        this.reviewSubmitBtnLocator = page.locator("//button[@id='button-review']");
 
 
         //Link locator 
@@ -33,6 +34,7 @@ class ProductPage extends BasePage
         this.womenDressTextLocator = page.locator("//h2[@class='title text-center']");
         this.menTshirtsTextLocator = page.locator("//h2[@class='title text-center']");
         this.productTitlePage = page.locator("//h2[@class='title text-center']");
+        this.reviewSuccessMsgLocator = page.locator("//div[@class='alert-success alert']/span[text()='Thank you for your review.']");
 
         //List locator
         this.productList = page.locator(".product-image-wrapper");
@@ -42,6 +44,9 @@ class ProductPage extends BasePage
         //Input locator 
         this.searchBarLocator = page.locator("//input[@id='search_product']");
         this.productQuantityInputLocator = page.locator("//input[@id='quantity']");
+        this.reviewNameInputLocator = page.locator("//input[@id='name']");
+        this.reviewEmailInputLocator = page.locator("//input[@id='email']");
+        this.reviewInputLocator = page.locator("//textarea[@id='review']");
     }
 
     async clickProductTab(){
@@ -103,6 +108,17 @@ class ProductPage extends BasePage
     }
     async clickCartTab(){
         await this.cartTabLocator.click();
+    }
+    async fillReviewForm(name,email,review){
+        await this.reviewNameInputLocator.fill(name);
+        await this.reviewEmailInputLocator.fill(email);
+        await this.reviewInputLocator.fill(review);
+    }
+    async clickReviewSubmitBtn(){
+        await this.reviewSubmitBtnLocator.click()
+    }
+    async getReviewSuccessMsg(){
+        return await this.reviewSuccessMsgLocator.textContent();
     }
 }
 module.exports={ProductPage};

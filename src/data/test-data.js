@@ -63,6 +63,7 @@ const data={
         uploadSuccess: 'Success! Your details have been submitted successfully.',
         subSuccess: 'You have been successfully subscribed!',
         orderSuccess: 'Order Placed!',
+        revSuccess: 'Thank you for your review.',
     },
     products:{
         product1: 'Blue Top',
@@ -82,6 +83,9 @@ const data={
         
         productPolo: 'Premium Polo T-Shirts',
         productPoloPrice: 'Rs. 1500',
+
+        product3: 'Sleeveless Dress',
+        product3Price: 'Rs. 1000',
 
         searchProductMen: 'Tshirt',
         quantity: '1',

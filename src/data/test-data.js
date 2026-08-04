@@ -43,7 +43,7 @@ const data={
     },
     validUser:{
         name: 'AKM',
-        email: 'AK@demo.com',
+        email: 'AKMK27@example.com',
         password: 'Akm@2003',
         subject: 'TestSubject',
         msg: 'TestDescription',
@@ -79,9 +79,9 @@ const data={
 
         product10: 'Frozen Tops For Kids',
         producr10Price:'Rs. 278',
-
-
-
+        
+        productPolo: 'Premium Polo T-Shirts',
+        productPoloPrice: 'Rs. 1500',
 
         searchProductMen: 'Tshirt',
         quantity: '1',

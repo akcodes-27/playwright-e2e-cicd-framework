@@ -31,7 +31,7 @@ test.describe('Product Page Test Suite',()=>{
         }
         await page.waitForTimeout(5000);  
     })
-    test('TC21: Add review on product @new',async({homePage,productPage,page})=>{
+    test('TC21: Add review on product',async({homePage,productPage,page})=>{
         await homePage.launchPage();
         await homePage.clickProductTab();
         await productPage.clickViewProductBtn(data.products.product3);

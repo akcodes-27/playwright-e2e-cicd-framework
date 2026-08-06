@@ -1,0 +1,74 @@
+category,key,value
+url,homePageUrl,https://automationexercise.com/
+url,loginPageUrl,https://automationexercise.com/login
+url,productPageUrl,https://automationexercise.com/products
+url,cartPageUrl,https://automationexercise.com/view_cart
+title,homePageTitle,Automation Exercise
+title,productDetailsPage,Automation Exercise - Product Details
+title,dressPageTitle,Automation Exercise - Dress Products
+title,dressPageCategory,Women - Dress Products
+title,tshirtPageTitle,Automation Exercise - Tshirts Products
+title,tshirtPageCategory,Men - Tshirts Products
+title,hAndMPageTitle,Brand - H&M Products
+title,allenSollyPageTitle,Brand - Allen Solly Junior Products
+user,name,AK
+user,email,AkMis27@example.com
+user,password,Ak@2003
+user,day,27
+user,month,September
+user,year,2003
+userAddress,fullName,Mr. AK Mishra
+userAddress,firstName,AK
+userAddress,lastName,Mishra
+userAddress,company,CTS
+userAddress,firstAdd,Hinjewadi phase 1
+userAddress,secondAdd,Sky heights room no 69
+userAddress,country,India
+userAddress,state,Maharashtra
+userAddress,city,Pune
+userAddress,zipcode,654321
+userAddress,mobileNumber,9876543210
+userAddress,cityZipcode,Pune Maharashtra 654321
+successResponse,accCreated,Account Created!
+successResponse,accDeleted,Account Deleted!
+validUser,name,AKM
+validUser,email,AKMK27@example.com
+validUser,password,Akm@2003
+validUser,subject,TestSubject
+validUser,msg,TestDescription
+validUser,textFile,./src/resources/Feedback.bmp
+invalidUser,name,invalidName
+invalidUser,email,inValid@example.com
+invalidUser,password,invalid2003
+errorMsg,loginFormError,Your email or password is incorrect!
+errorMsg,signupFormError,Email Address already exist!
+response,uploadSuccess,Success! Your details have been submitted successfully.
+response,subSuccess,You have been successfully subscribed!
+response,orderSuccess,Order Placed!
+response,revSuccess,Thank you for your review.
+products,product1,Blue Top
+products,product1Price,Rs. 500
+products,product2,Men Tshirt
+products,producr2Price,Rs. 400
+products,product4,Stylish Dress
+products,product4Price,Rs. 1500
+products,product5,Winter Top
+products,producr5Price,Rs. 600
+products,product10,Frozen Tops For Kids
+products,producr10Price,Rs. 278
+products,productPolo,Premium Polo T-Shirts
+products,productPoloPrice,Rs. 1500
+products,product3,Sleeveless Dress
+products,product3Price,Rs. 1000
+products,searchProductMen,Tshirt
+products,quantity,1
+products,quantityfx,
+products,quantityDtls,4
+products,totalPrice,Rs. 3278
+products,totalfx,Rs. 2000
+products,description,Test
+paymentDetails,name,AK Mishra
+paymentDetails,cardNumber,092720031610
+paymentDetails,cvc,003
+paymentDetails,expiryMonth,9
+paymentDetails,expiryYear,2032

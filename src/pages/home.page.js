@@ -22,9 +22,12 @@ class HomePage extends BasePage
         this.womenTabLocator = page.locator("//h4[@class='panel-title']/a[@href='#Women']");
         this.dressTabLocator = page.locator("//ul/li/a[@href='/category_products/1']");
         this.productTabLocator = page.locator("//i[@class='material-icons card_travel']/parent::a");
+        this.recommendedProductRightPanelBtnLocator = page.locator("//i[@class='fa fa-angle-right']/parent::a[@href='#recommended-item-carousel']");
+        this.recommendedProductLeftPanelBtnLocator = page.locator("//i[@class='fa fa-angle-left']/parent::a[@href='#recommended-item-carousel']");
 
         //List locator 
         this.productBoxListLocator = page.locator(".product-image-wrapper");
+        this.recommendedProductListLocator = page.locator("//div[@class='recommended_items']/div/div/div/div/div");
 
         //Text Locator
         this.newUserSignupLocator = "//h2[text()='New User Signup!']";
@@ -194,6 +197,16 @@ class HomePage extends BasePage
     }
     async clickProductTab(){
         await this.productTabLocator.click();
+    }
+    async clickAddToCartRecommendedProduct(productsNames){
+        for(let product of productsNames){
+            const productLocator = await this.recommendedProductListLocator.filter({hasText: product});
+            if(!(await productLocator.isVisible())){
+                await this.recommendedProductRightPanelBtnLocator.click();
+            }
+            await productLocator.filter({hasText: product}).getByText('Add to cart').click();
+            await this.popupContinueBtnLocator.click();  
+        }
     }
 }
 module.exports={ HomePage };

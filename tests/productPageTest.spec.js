@@ -1,6 +1,7 @@
 import { test,expect } from "../src/fixtures/pages.fixtures";
 import { data } from "../src/data/test-data";
 import { HomePage } from "../src/pages/home.page";
+import { CartPage } from "../src/pages/cart.page";
 test.describe('Product Page Test Suite',()=>{
     test('TC8: Verify All Products and product detail page',async({loggedIn,productPage,page})=>{
         await productPage.clickProductTab();

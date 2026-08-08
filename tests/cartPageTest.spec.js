@@ -24,7 +24,7 @@ test.describe('Cart Page Valiation',()=>{
         await page.waitForTimeout(5000);
     })
     test('TC13: Verify Product quantity in Cart(without login)',async({homePage,productPage,cartPage,page})=>{
-            await homePage.launchPage();
+            await homePage.launchPage()
             await homePage.clickViewProductBtn(data.products.product1);
             expect(page).toHaveTitle(data.title.productDetailsPage);
             await productPage.fillProductQuantity(data.products.quantityDtls);
@@ -194,7 +194,7 @@ test.describe('Cart Page Valiation',()=>{
                 await expect(products2.nth(i)).toBeVisible();
             }
             await page.waitForTimeout(3000);
-        })
+    })
     test('TC20: Search Products and Verify Cart After Login',async({homePage,productPage,cartPage,page})=>{
             await homePage.launchPage();
             await homePage.clickProductTab();
@@ -225,5 +225,17 @@ test.describe('Cart Page Valiation',()=>{
                 );
             await cartPage.removeProductsFromCart([data.products.product2,data.products.productPolo]);
             await page.waitForTimeout(3000);
+    })
+    test('TC22: Add to cart from Recommended items @new',async({homePage,utils,productPage,cartPage,page})=>{
+        await homePage.launchPage();
+        await page.keyboard.press('End');
+        const products = await homePage.recommendedProductListLocator;
+        for(let i=0; i<products.count(); i++){
+            await expect(products.nth(i)).toBeVisible();
+        }
+        await homePage.clickAddToCartRecommendedProduct([data.products.product1,data.products.product5]);
+        await homePage.clickCartTab();
+        expect(await cartPage.getItemsInCart()).toStrictEqual([data.products.product1,data.products.product5]);
+        await page.waitForTimeout(3000);
     })
 })

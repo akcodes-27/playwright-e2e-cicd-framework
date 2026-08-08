@@ -3,7 +3,7 @@ class Utils
     constructor(page){
         this.page = page;
     }
-    //Dialog
+    //Dialog-need a check test failed 
     async acceptDialog(){
         console.log('Registering dialog handler');
         this.page.once('dialog',async dialog =>{

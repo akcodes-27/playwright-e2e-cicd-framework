@@ -1,8 +1,16 @@
 category,key,value
+
+# ==================================================
+# URLs
+# ==================================================
 url,homePageUrl,https://automationexercise.com/
 url,loginPageUrl,https://automationexercise.com/login
 url,productPageUrl,https://automationexercise.com/products
 url,cartPageUrl,https://automationexercise.com/view_cart
+
+# ==================================================
+# Page Titles
+# ==================================================
 title,homePageTitle,Automation Exercise
 title,productDetailsPage,Automation Exercise - Product Details
 title,dressPageTitle,Automation Exercise - Dress Products
@@ -11,12 +19,20 @@ title,tshirtPageTitle,Automation Exercise - Tshirts Products
 title,tshirtPageCategory,Men - Tshirts Products
 title,hAndMPageTitle,Brand - H&M Products
 title,allenSollyPageTitle,Brand - Allen Solly Junior Products
+
+# ==================================================
+# Primary Test User (used for signup flow)
+# ==================================================
 user,name,AK
 user,email,AkMis27@example.com
 user,password,Ak@2003
 user,day,27
 user,month,September
 user,year,2003
+
+# ==================================================
+# User Address (used during signup / checkout)
+# ==================================================
 userAddress,fullName,Mr. AK Mishra
 userAddress,firstName,AK
 userAddress,lastName,Mishra
@@ -29,23 +45,47 @@ userAddress,city,Pune
 userAddress,zipcode,654321
 userAddress,mobileNumber,9876543210
 userAddress,cityZipcode,Pune Maharashtra 654321
+
+# ==================================================
+# Success Response Messages
+# ==================================================
 successResponse,accCreated,Account Created!
 successResponse,accDeleted,Account Deleted!
+
+# ==================================================
+# Valid User (used for login-success test cases)
+# ==================================================
 validUser,name,AKM
 validUser,email,AKMK27@example.com
 validUser,password,Akm@2003
 validUser,subject,TestSubject
 validUser,msg,TestDescription
 validUser,textFile,./src/resources/Feedback.bmp
+
+# ==================================================
+# Invalid User (used for negative test cases)
+# ==================================================
 invalidUser,name,invalidName
 invalidUser,email,inValid@example.com
 invalidUser,password,invalid2003
+
+# ==================================================
+# Error Messages
+# ==================================================
 errorMsg,loginFormError,Your email or password is incorrect!
 errorMsg,signupFormError,Email Address already exist!
+
+# ==================================================
+# General Response Messages
+# ==================================================
 response,uploadSuccess,Success! Your details have been submitted successfully.
 response,subSuccess,You have been successfully subscribed!
 response,orderSuccess,Order Placed!
 response,revSuccess,Thank you for your review.
+
+# ==================================================
+# Products
+# ==================================================
 products,product1,Blue Top
 products,product1Price,Rs. 500
 products,product2,Men Tshirt
@@ -67,8 +107,20 @@ products,quantityDtls,4
 products,totalPrice,Rs. 3278
 products,totalfx,Rs. 2000
 products,description,Test
+
+# ==================================================
+# Payment Details
+# ==================================================
 paymentDetails,name,AK Mishra
 paymentDetails,cardNumber,092720031610
 paymentDetails,cvc,003
 paymentDetails,expiryMonth,9
 paymentDetails,expiryYear,2032
+
+# ==================================================
+# Add new sections below this line.
+# Pattern: category,key,value
+# Example for a new "TC15" test case:
+# checkoutData,promoCode,SAVE20
+# checkoutData,promoDiscount,Rs. 100
+# ==================================================
